@@ -125,6 +125,9 @@ export default async function handler(req, res) {
   try {
     // this should be the actual path not a rewritten path
     // e.g. for "/blog/[slug]" this should be "/blog/post-1"
+    // remember, if you enabled "i18n" you would need to prefix each locale
+    // e.g. /blogs/[slug].js would only update the default locale, to update other locales,
+    // the path should be "/your-locale/blogs/[slug].js" for each of the desired locles to update.
     await res.revalidate('/path-to-revalidate')
     return res.json({ revalidated: true })
   } catch (err) {
