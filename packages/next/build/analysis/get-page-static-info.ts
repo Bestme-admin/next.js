@@ -198,7 +198,7 @@ function getMiddlewareRegExpStrings(
   }
 
   if (nextConfig.i18n?.locales) {
-    matcher = `/:nextInternalLocale(${nextConfig.i18n.locales
+    matcher = `/:nextInternalLocale((?!_next/)${nextConfig.i18n.locales
       .map((locale) => escapeStringRegexp(locale))
       .join('|')})${
       matcher === '/' && !nextConfig.trailingSlash ? '' : matcher
